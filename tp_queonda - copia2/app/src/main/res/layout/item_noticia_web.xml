@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ln1"
+    android:orientation="vertical"
+    >
+<LinearLayout
+    android:id="@+id/ln2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ProgressBar
+        android:id="@+id/pb_foto_lista"
+        android:visibility="visible"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp" />
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/imageView_foto"
+        />
+
+    <TextView
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp"
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="@color/blanco"
+        android:text="@string/titulo"
+        android:id="@+id/textView_nombre" />
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        >
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="@string/descripcion"
+            android:id="@+id/textView_info" />
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_search"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/iv_foto_idioma"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/color_fecha_lista"
+            android:layout_gravity="center_horizontal"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:id="@+id/fecha_item_lista" />
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="@string/editor"
+            android:id="@+id/editor" />
+
+    </LinearLayout>
+
+</LinearLayout>

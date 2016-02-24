@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negro"
+    android:orientation="vertical"
+    tools:context="com.mobaires.noticias.vista.NoticiaFotoDetalle">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+    <ScrollView
+        android:id="@+id/scroll_foto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+    <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <ProgressBar
+        android:padding="120dp"
+        android:layout_gravity="center"
+        android:id="@+id/pb_foto_grande_detalle"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:id="@+id/iv_foto_noticia_foto"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <TextView
+        android:padding="8dp"
+        android:layout_gravity="center"
+        android:id="@+id/tv_foto_noticia_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

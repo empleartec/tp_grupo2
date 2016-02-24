@@ -1,0 +1,23 @@
+/*
+
+**** TRABAJO PRACTICO CURSO ANDROID GRUPO 2 ****
+
+NOTAS DE LA APP:
+
+    * Lector de noticias que toma de Google News Rest Service información
+      de noticias de diferentes editores y las muestra según búsqueda e idioma
+      permitiendo compartir la noticia y descargar fotos.
+
+
+LO QUE FALTA:
+
+    * Cache de imágenes par reducir la carga en ram y agilizar la carga
+      general de contenido de la app.
+
+BUGS NO RESUELTOS:
+
+    * Botón "back" toolbar no funciona en algunas versiones. (solucion hacerlo a mano)
+    * Ítems de la listView se iluminan en conjunto al clickear en algunas versiones. (solucion selector)
+    * Algunas excepciones en la obtención de las imágenes cuando falla la conexión.
+
+*/

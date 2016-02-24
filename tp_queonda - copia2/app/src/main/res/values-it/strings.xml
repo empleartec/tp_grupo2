@@ -1,0 +1,46 @@
+<resources>
+    <string name="orientacion">Sono in ritratto</string>
+    <string name="app_name">Visor di Notizie</string>
+    <string name="action_share_noticia">Condividere</string>
+    <string name="action_search_noticia">Cerca Notizie</string>
+    <string name="noticia_sin_foto">noFoto</string>
+    <string name="error_noticeselected">debe implementare NoticiasListaFragment.OnNoticeSelectedListener</string>
+    <string name="editor">Editore</string>
+    <string name="btn_navegador">Guardare su Browser...</string>
+    <string name="titulo">Titolo qui</string>
+    <string name="descripcion">Descrizione</string>
+    <string name="texto_seleccionar_noticia">Selezionare notizia...</string>
+    <string name="config">Impostazioni</string>
+    <string name="config_valores_autom">Ottenere impostazioni automaticamente...</string>
+    <string name="config_palabra_inicial">Cercar all inicio...</string>
+    <string name="subtitulo_barra">2016 - Corso Android - V1.0</string>
+    <string name="buscando">Cercando</string>
+    <string name="apps_soportadas">Non ci sono app per condividere</string>
+    <string name="sin_resultado">Senza Risultati...</string>
+    <string name="string_inicial">mondo</string>
+    <string name="hint_busqueda_toolbar">Cerca...(Economia, Moda, etc.)</string>
+    <string name="enviar_objeto_noticia">objeto</string>
+    <string name="cantidad_resultados">8</string>
+    <string name="tp_final">Trabajo Práctico Final</string>
+    <string name="guardar_imagen">Salvare immagine...</string>
+    <string name="guardar_imagen_correcto">Salvata!</string>
+    <string name="guardar_imagen_incorrecto">Non Salvata!</string>
+    <string name="guardar_imagen_nombre_foto">fotoNotizia</string>
+    <string name="guardar_imagen_titulo">Imaginne</string>
+    <string name="guardar_imagen_subtitulo">Salvare o Condivere</string>
+    <string name="aviso_toca_imagen">Tocca l imaginne per ampliare</string>
+
+    <string name="json_response_data">responseData</string>
+    <string name="json_results">results</string>
+    <string name="json_titulo">titleNoFormatting</string>
+    <string name="json_contenido">content</string>
+    <string name="json_fecha">publishedDate</string>
+    <string name="json_editor">publisher</string>
+    <string name="json_url_noticia">unescapedUrl</string>
+    <string name="json_imagen">image</string>
+    <string name="json_imagen_chica">tbUrl</string>
+    <string name="json_imagen_grande">url</string>
+    <string name="json_idioma">language</string>
+    <string name="default_nombre">ALGO</string>
+
+</resources>

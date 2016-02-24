@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negro">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+    <ScrollView
+        android:id="@+id/scroll_detalle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView_titulo_activity_detalle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <ProgressBar
+        android:padding="70dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible"
+            android:id="@+id/pb_foto_det_activ"
+            android:layout_width="220dp"
+            android:layout_height="220dp" />
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:padding="5dp"
+        android:id="@+id/imageView_foto_port"
+        />
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+           android:src="@drawable/ampliar"
+           android:visibility="visible"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:padding="3dp"
+           android:id="@+id/iv_ampliar" />
+
+        <TextView
+            android:textSize="10dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/aviso_toca_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descripcion"
+        android:id="@+id/textView_descripcion_activity"
+        android:layout_below="@+id/textView_titulo_activity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/btn_navegador"
+            android:textSize="10dp"
+            android:id="@+id/button_ver_navegador"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

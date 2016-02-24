@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="orientacion">Estoy en landscape</string>
+    <string name="default_nombre">ALGO</string>
+</resources>

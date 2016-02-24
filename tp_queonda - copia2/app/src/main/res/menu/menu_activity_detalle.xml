@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ActivityActionBarNativa">
+
+    <item
+        android:visible="false"
+        android:icon="@drawable/bajar_foto"
+        android:id="@+id/bajar_foto"
+        android:title="nada"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:icon="@drawable/ic_compartir"
+        android:id="@+id/action_share"
+        android:title="@string/action_share_noticia"
+        app:showAsAction="ifRoom"
+       />
+
+</menu>
+
+
+
+
