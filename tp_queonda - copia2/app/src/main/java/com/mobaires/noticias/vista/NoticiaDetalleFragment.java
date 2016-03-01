@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobaires.noticias.R;
 import com.mobaires.noticias.entidades.NoticiaWeb;
@@ -29,6 +30,8 @@ public class NoticiaDetalleFragment extends Fragment {
     ImageView foto;
     Button botonVerWEB;
     ProgressBar pbFoto;
+    ImageView fotoAmpliar;
+    TextView textoAmpliar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
@@ -81,6 +84,26 @@ public class NoticiaDetalleFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        final NoticiaWeb noti = noticia;
+        this.foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Toast.makeText(getContext(), "HOLA MUNDO", Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getContext(), NoticiaFotoDetalle.class);
+                intent.putExtra(getResources().getString(R.string.enviar_objeto_noticia), noti);
+                startActivity(intent);
+
+            }
+        });
+
+        this.fotoAmpliar = (ImageView)getView().findViewById(R.id.iv_ampliar_land);
+        this.fotoAmpliar.setVisibility(View.VISIBLE);
+        this.textoAmpliar = (TextView)getView().findViewById(R.id.tv_ampliar_land);
+        this.textoAmpliar.setVisibility(View.VISIBLE);
     }
 
     public TextView getTitulo(){

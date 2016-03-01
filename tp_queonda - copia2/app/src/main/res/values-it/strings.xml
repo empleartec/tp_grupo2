@@ -29,6 +29,15 @@
     <string name="guardar_imagen_titulo">Imaginne</string>
     <string name="guardar_imagen_subtitulo">Salvare o Condivere</string>
     <string name="aviso_toca_imagen">Tocca l imaginne per ampliare</string>
+    <string name="pagina_numero">Paggina</string>
+    <string name="proxima_pagina">Paggina Seguente</string>
+    <string name="anterior_pagina">Paggina Precedente</string>
+    <string name="tabhost_personalizado">Personalizzato</string>
+    <string name="tabhost_economia">Economia</string>
+    <string name="tabhost_depoertes">Sportivo</string>
+    <string name="tabhost_entretenimiento">Divertimento</string>
+    <string name="tabhost_salud">Salute</string>
+    <string name="tabhost_ciencia">Scienza</string>
 
     <string name="json_response_data">responseData</string>
     <string name="json_results">results</string>

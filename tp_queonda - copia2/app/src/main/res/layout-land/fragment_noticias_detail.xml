@@ -43,7 +43,33 @@
         android:id="@+id/imageView_foto"
       />
 
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ampliar"
+            android:visibility="gone"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="3dp"
+            android:id="@+id/iv_ampliar_land" />
+
+        <TextView
+            android:id="@+id/tv_ampliar_land"
+            android:visibility="gone"
+            android:textSize="10dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/aviso_toca_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

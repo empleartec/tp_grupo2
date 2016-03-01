@@ -116,7 +116,11 @@ public class HttpClient {
 
     public static List<NoticiaWeb> GenerarObjetoNoticia (Context c, String jsonAsString) throws JSONException {
 
+        // {"responseData": null, "responseDetails": "out of range start", "responseStatus": 400}
+
         // METODO RECIBE STRING JSON Y GENERA  NOTICIA EN  OBJETO (DEVUELVE UN OBJETO JAVA NOTICIA)
+
+        // DEBERIA VALIDARSE SI ES UN JSON CORRECTO O NO Y LANZAR O NO UNA EXEPTION ********
 
         List<NoticiaWeb> Listanoticias = new ArrayList<NoticiaWeb>();
 
@@ -134,56 +138,76 @@ public class HttpClient {
 
         // Crear JsonObject y definirle los atributos.
         JSONObject jsonObject = new JSONObject(jsonAsString);
-        JSONObject responseData = jsonObject.optJSONObject(c.getResources().getString(R.string.json_response_data));
-        JSONArray jsonArray_results = responseData.getJSONArray(c.getResources().getString(R.string.json_results));
 
-       //Llenar de objetos Noticia Listanoticias.
-        for (int i = 0; i < jsonArray_results.length(); i++)
+        JSONObject responseData = null; // = jsonObject.optJSONObject(c.getResources().getString(R.string.json_response_data));
+        JSONArray jsonArray_results = null;// = responseData.getJSONArray(c.getResources().getString(R.string.json_results));
+
+        responseData = jsonObject.optJSONObject(c.getResources().getString(R.string.json_response_data));
+
+        if(responseData != null && !jsonAsString.isEmpty())
         {
-            JSONObject jsonObject_i = jsonArray_results.getJSONObject(i);
+            jsonArray_results = responseData.getJSONArray(c.getResources().getString(R.string.json_results));
 
-            titulo = jsonObject_i.getString(c.getResources().getString(R.string.json_titulo)); // Título de la noticia
-            contenido = jsonObject_i.getString(c.getResources().getString(R.string.json_contenido)); // Contenido de la noticia
-            fecha = jsonObject_i.getString(c.getResources().getString(R.string.json_fecha)); // Fecha
-            editor = jsonObject_i.getString(c.getResources().getString(R.string.json_editor)); // Editor
-            web = jsonObject_i.getString(c.getResources().getString(R.string.json_url_noticia)); // Direccion noticia
-            idioma = jsonObject_i.getString(c.getResources().getString(R.string.json_idioma)); // Idioma
+            //Llenar de objetos Noticia Listanoticias.
+            for (int i = 0; i < jsonArray_results.length(); i++) {
+                JSONObject jsonObject_i = jsonArray_results.getJSONObject(i);
 
-            // Estas dos líneas quitan código HTML y genera un string "limpio":
-            titulo = Html.fromHtml(titulo).toString();
-            contenido = Html.fromHtml(contenido).toString();
-            // ----------------------------------------------------------------
+                titulo = jsonObject_i.getString(c.getResources().getString(R.string.json_titulo)); // Título de la noticia
+                contenido = jsonObject_i.getString(c.getResources().getString(R.string.json_contenido)); // Contenido de la noticia
+                fecha = jsonObject_i.getString(c.getResources().getString(R.string.json_fecha)); // Fecha
+                editor = jsonObject_i.getString(c.getResources().getString(R.string.json_editor)); // Editor
+                web = jsonObject_i.getString(c.getResources().getString(R.string.json_url_noticia)); // Direccion noticia
+                idioma = jsonObject_i.getString(c.getResources().getString(R.string.json_idioma)); // Idioma
 
-            try
-            {
-                // Puede que no haya imagenes en el json...
-                fotoChica = jsonObject_i.getJSONObject(c.getResources().getString(R.string.json_imagen)).getString(c.getResources().getString(R.string.json_imagen_chica)); // Fotos Chicas
-                fotoGrande = jsonObject_i.getJSONObject(c.getResources().getString(R.string.json_imagen)).getString(c.getResources().getString(R.string.json_imagen_grande)); // Fotod Grandes
-            }
-            catch(Exception e)
-            {
-                // Si no existiera la imagen lanzo la excepcion, recolecto la información que no varía
-                // y corto el bucle...
+                // Estas dos líneas quitan código HTML y genera un string "limpio":
+                titulo = Html.fromHtml(titulo).toString();
+                contenido = Html.fromHtml(contenido).toString();
+                // ----------------------------------------------------------------
+
+                try {
+                    // Puede que no haya imagenes en el json...
+                    fotoChica = jsonObject_i.getJSONObject(c.getResources().getString(R.string.json_imagen)).getString(c.getResources().getString(R.string.json_imagen_chica)); // Fotos Chicas
+                    fotoGrande = jsonObject_i.getJSONObject(c.getResources().getString(R.string.json_imagen)).getString(c.getResources().getString(R.string.json_imagen_grande)); // Fotod Grandes
+                } catch (Exception e) {
+                    // Si no existiera la imagen lanzo la excepcion, recolecto la información que no varía
+                    // y corto el bucle...
+
+                    Listanoticias.add(new NoticiaWeb(titulo,
+                            contenido,
+                            fecha,
+                            editor,
+                            faltaFoto,
+                            faltaFoto,
+                            web,
+                            idioma));
+                    continue;
+                }
 
                 Listanoticias.add(new NoticiaWeb(titulo,
-                                                 contenido,
-                                                 fecha,
-                                                 editor,
-                                                 faltaFoto,
-                                                 faltaFoto,
-                                                 web,
-                                                 idioma));
-                continue;
+                        contenido,
+                        fecha,
+                        editor,
+                        fotoChica,
+                        fotoGrande,
+                        web,
+                        idioma));
             }
+        }
+        else
+        {
+            try
+            {
+                String mensaje = jsonObject.getString("responseDetails");
+                Log.d(TAG, "problema: " + mensaje);
 
-            Listanoticias.add(new NoticiaWeb(titulo,
-                                             contenido,
-                                             fecha,
-                                             editor,
-                                             fotoChica,
-                                             fotoGrande,
-                                             web,
-                                             idioma));
+                NoticiaWeb noticiaVacia = new NoticiaWeb(mensaje, "Si esto se ve, no hay más noticias","","","","","","");
+
+                Listanoticias.add(noticiaVacia);
+            }
+            catch (Exception e)
+            {
+                Log.d(TAG, "problema al conectarse... X_X");
+            }
         }
 
         return Listanoticias;

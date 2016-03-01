@@ -30,7 +30,15 @@
     <string name="guardar_imagen_titulo">Image</string>
     <string name="guardar_imagen_subtitulo">Save or Share</string>
     <string name="aviso_toca_imagen">Touch the image to enlarge</string>
-
+    <string name="pagina_numero">Page</string>
+    <string name="proxima_pagina">Next Page</string>
+    <string name="anterior_pagina">Previous Page</string>
+    <string name="tabhost_personalizado">Custom</string>
+    <string name="tabhost_economia">Economy</string>
+    <string name="tabhost_depoertes">Sports</string>
+    <string name="tabhost_entretenimiento">Entertainment</string>
+    <string name="tabhost_salud">Health</string>
+    <string name="tabhost_ciencia">Science</string>
 
 
     <string name="json_response_data">responseData</string>

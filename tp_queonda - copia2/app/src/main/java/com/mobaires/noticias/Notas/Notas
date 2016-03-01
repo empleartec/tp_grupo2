@@ -2,22 +2,43 @@
 
 **** TRABAJO PRACTICO CURSO ANDROID GRUPO 2 ****
 
-NOTAS DE LA APP:
+NOTAS DE LA APP (AL 27/02/2016):
 
-    * Lector de noticias que toma de Google News Rest Service información
+    * Lector de noticias que toma de Google News Rest (JSON) Service información
       de noticias de diferentes editores y las muestra según búsqueda e idioma
       permitiendo compartir la noticia y descargar fotos.
 
 
 LO QUE FALTA:
 
-    * Cache de imágenes par reducir la carga en ram y agilizar la carga
-      general de contenido de la app.
+    * Marquesina...
 
 BUGS NO RESUELTOS:
 
     * Botón "back" toolbar no funciona en algunas versiones. (solucion hacerlo a mano)
     * Ítems de la listView se iluminan en conjunto al clickear en algunas versiones. (solucion selector)
     * Algunas excepciones en la obtención de las imágenes cuando falla la conexión.
+
+CODIGOS Y DEMAS:
+
+    Para búsquedas por tópico:
+
+    (Si queda vacío traerá noticias generales)
+
+    topic en la consulta al rest indica noticias sobre qué debe traer, los códigos son:
+
+    h - specifies the top headlines topic
+    w - specifies the world topic
+    b - specifies the business topic
+    n - specifies the nation topic
+    t - specifies the science and technology topic
+    el - specifies the elections topic
+    p - specifies the politics topic
+    e - specifies the entertainment topic
+    s - specifies the sports topic
+    m - specifies the health topic
+
+    STRING DEL SERVICIO
+    https://ajax.googleapis.com/ajax/services/search/news?v=1.0&topic=b&start=0&q=concha&rsz=8&hl=es
 
 */

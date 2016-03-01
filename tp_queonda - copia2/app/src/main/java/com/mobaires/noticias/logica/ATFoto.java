@@ -16,13 +16,10 @@ import java.util.Map;
     Clase que maneja la tarea asíncrona de descargar una foto desde web...
     Recibe el ImageView en el cual aparecerá la foto...
     Recibe como parámetro en el constructor la ruta donde debe buscar la foto...
-
-
 */
 
 public class ATFoto extends AsyncTask<ImageView, Void, Bitmap> {
 
-    private static Map<ImageView,ATFoto> currentTasks = new HashMap<>();
     ImageView img;
     String ruta ="";
     ProgressBar pbFoto;
@@ -38,7 +35,7 @@ public class ATFoto extends AsyncTask<ImageView, Void, Bitmap> {
     }
 
     // NOTA
-    // SOBRECARGA EN CASO DE QUERER USAR SOLO UNA ATFOTO CON ATFOTOLISTA, DE MOMENTO NO SE USA
+    // SOBRECARGA EN CASO DE QUERER USAR SOLO UNA ATFOTO CON ATFOTOLISTA
     public ATFoto(String ruta, ProgressBar pb, AdaptadorNoticiasWeb.ViewHolder v, int position){
 
         this.lista = true;
@@ -56,29 +53,25 @@ public class ATFoto extends AsyncTask<ImageView, Void, Bitmap> {
     protected Bitmap doInBackground(ImageView... params) {
 
         this.img = params[0];
-
-        // Solucionar problemas con carga de imágenes-----------
-        if(currentTasks.containsKey(img)){
-            //Cancelar el ATFoto que está corriendo
-
-            ATFoto atf = currentTasks.remove(img);
-            atf.cancel(true);
-        }
-
-        currentTasks.put(img, this); // Agrego la tarea que estaré realizando...
-        // -----------------------------------------------------
         Bitmap img = null;
 
         try
         {
-            img = HttpClient.DownloadImage(this.ruta);
+            // Si la foto está cacheada la tomo, sino descargo y coloco en caché.
+            if(CacheFotos.fotos.containsKey(ruta))
+            {
+                img = CacheFotos.fotos.get(ruta);
+            }
+            else
+            {
+                img = HttpClient.DownloadImage(this.ruta);
+                CacheFotos.fotos.put(ruta, img);
+            }
         }
         catch (Exception e)
         {
             throw e;
         }
-
-        currentTasks.remove(img); // saco la tarea actual.
 
         return img;
     }
@@ -89,6 +82,10 @@ public class ATFoto extends AsyncTask<ImageView, Void, Bitmap> {
 
         //demorarCarga(1000);
 
+        // lista es un boolean que sirve para identificar si entre por el contructor de lista
+        // o el de fotos. El de lista tiene el parametro viewholder y position y el de foto no.
+        // de esta forma si el resultado es para la lista se ejecuta el if con comparacion entre
+        // getPosition y postion, de lo contrario sólo saco la imagen pedida.
         if(this.lista)
         {
             if(v.getPosition() == position){
@@ -105,13 +102,6 @@ public class ATFoto extends AsyncTask<ImageView, Void, Bitmap> {
             img.setVisibility(View.VISIBLE);
             pbFoto.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    protected void onCancelled() {
-        super.onCancelled();
-
-        this.img = null;
     }
 
     private void demorarCarga(int tiempoDemora){

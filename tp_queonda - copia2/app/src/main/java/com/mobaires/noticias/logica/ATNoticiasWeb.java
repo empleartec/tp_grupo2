@@ -27,14 +27,18 @@ public class ATNoticiasWeb extends AsyncTask<Void, Void, List<NoticiaWeb> > {
     String busqueda = "";
     String idioma = "";
     String cantidadResultados;
+    String paginador;
+    String topico;
 
-    public ATNoticiasWeb(Context ctx, IListaCallbackWeb callback, String busqueda, String idioma) {
+    public ATNoticiasWeb(Context ctx, IListaCallbackWeb callback, String busqueda, String idioma, String cantidadResultados, String paginador, String topico) {
 
         this.callback = callback;
         this.busqueda = busqueda;
         this.idioma = idioma;
         this.con = ctx;
-        this.cantidadResultados = Variables.getCantidadResultados(this.con);
+        this.cantidadResultados = cantidadResultados;
+        this.paginador = paginador;
+        this.topico = topico;
     }
 
     @Override
@@ -57,6 +61,8 @@ public class ATNoticiasWeb extends AsyncTask<Void, Void, List<NoticiaWeb> > {
         {
             u = new URL("https://ajax.googleapis.com/ajax/services/search/news?"
                         + "v=1.0"
+                        + "&topic=" + this.topico // Topicos (deportes, política, etc)
+                        + "&start=" + this.paginador // Apartir de que noticia traer noticias
                         + "&q=" + this.busqueda // String a buscar
                         + "&rsz=" + this.cantidadResultados //Cantidad de resultados
                         + "&hl=" + this.idioma); // idioma de la búsqueda )
@@ -71,6 +77,7 @@ public class ATNoticiasWeb extends AsyncTask<Void, Void, List<NoticiaWeb> > {
         catch (MalformedURLException e)
         {
             e.printStackTrace();
+
         }
         catch (IOException e)
         {

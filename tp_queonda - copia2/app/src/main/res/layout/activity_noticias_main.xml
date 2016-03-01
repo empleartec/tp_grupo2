@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/negro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -16,18 +17,220 @@
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
-    <LinearLayout
+    <TextView
+        android:text=""
+        android:id="@+id/marquesina"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"/>
+
+    <TabHost
+        android:background="@color/negro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:id="@+id/tabHost">
 
-        <fragment
-            android:id="@+id/listFragment"
-            class="com.mobaires.noticias.vista.NoticiasListaFragment"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:background="@color/negro"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none" >
+
+            <TabWidget
+                android:background="@color/negro"
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TabWidget>
+            </HorizontalScrollView>
+
+
+
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab_noticias_general"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <fragment
+                            android:id="@+id/listFragment"
+                            class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/negro"
+                    android:id="@+id/tab_noticias_economia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <fragment
+                            android:id="@+id/listFragment_economia"
+                            class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab_noticias_deportes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <fragment
+                            android:id="@+id/listFragment_deportes"
+                            class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab_noticias_salud"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <fragment
+                            android:id="@+id/listFragment_salud"
+                            class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:id="@+id/tab_noticias_ciencia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+
+                    <fragment
+                        android:id="@+id/listFragment_ciencia"
+                        class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tab_noticias_entretenimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <fragment
+                            android:id="@+id/listFragment_entretenimiento"
+                            class="com.mobaires.noticias.vista.NoticiasListaFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
 </LinearLayout>

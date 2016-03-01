@@ -29,6 +29,15 @@
     <string name="guardar_imagen_titulo">Imagen</string>
     <string name="guardar_imagen_subtitulo">Salvar ou Compartilhar</string>
     <string name="aviso_toca_imagen">Toque na imagem para ampliar</string>
+    <string name="pagina_numero">Página</string>
+    <string name="proxima_pagina">Página Seguinte</string>
+    <string name="anterior_pagina">Página Anterior</string>
+    <string name="tabhost_personalizado">Personalizado</string>
+    <string name="tabhost_economia">Economia</string>
+    <string name="tabhost_depoertes">Esporte</string>
+    <string name="tabhost_entretenimiento">Diversao</string>
+    <string name="tabhost_salud">Saúde</string>
+    <string name="tabhost_ciencia">Ciencia</string>
 
     <string name="json_response_data">responseData</string>
     <string name="json_results">results</string>
